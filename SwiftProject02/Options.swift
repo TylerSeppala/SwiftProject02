@@ -9,6 +9,7 @@ import Foundation
 
 class Options {
     let json = JsonAccess()
+    let scram = Scramble()
     var dictionary: Dictionary<String,String> = [:]
     
     func viewAll()
@@ -26,14 +27,16 @@ class Options {
         var val: String?
         val = dictionary[key]
         if let unwrappedVal = val {
-            print(unwrappedVal)
+            let result = scram.undoScramble(shiftedStr: unwrappedVal)
+            print(result)
         }
     }
     
-    func addSingle(key: String, value: String)
+    func addSingle(phrase: String, key: String, value: String)
     {
         dictionary = json.read()
-        dictionary[key] = value
+        let passAltered = scram.executeScramble(newPass: value, passPhrase: phrase)
+        dictionary[key] = passAltered
         json.write(dict: dictionary)
     }
     

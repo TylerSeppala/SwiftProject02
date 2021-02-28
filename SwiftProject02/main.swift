@@ -41,11 +41,13 @@ class Program
                 ops.viewSingle(key: prompt)
             case "3":
                 print("Adding single...")
+                print("Enter your passphrase")
+                let pass = readLine()
                 print("Enter the name of the new password. ")
                 let name = readLine()
                 print("Enter the new password. ")
                 let pwd = readLine()
-                ops.addSingle(key: name!, value: pwd!)
+                ops.addSingle(phrase: pass!, key: name!, value: pwd!)
                 
             case "4":
                 print("Deleting single...")
