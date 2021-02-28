@@ -1,6 +1,10 @@
 //
 //  main.swift
 //  Project 01
+//  This program allows the user to store and retrieve passwords using keywords and
+//  one master passphrase.
+//  The passphrase is set to "passphrase" by default, but can be changed in the code below.
+//
 //  I would like to use one of my late days on this.
 //
 //  Created by cpsc on 2/24/21.
@@ -13,7 +17,7 @@ class Program
     init()
     {
         let ops = Options()
-        let passphrase = "yolo"
+        let passphrase = "passphrase" //Master passphrase, edit here to change.
         var prompt = ""
         var reply = ""
         var keepRunning = true
