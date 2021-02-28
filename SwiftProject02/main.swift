@@ -36,18 +36,17 @@ class Program
                 ops.viewAll()
             case "2":
                 print("Viewing single...")
-                prompt = Ask.AskQuestion(questionText: "Enter your passphrase. ", acceptableReplies: [passphrase])
+                let phrase = Ask.AskQuestion(questionText: "Enter your passphrase. ", acceptableReplies: [passphrase])
                 prompt = Ask.AskQuestion(questionText: "Enter the name of the password you want to view. ", acceptableReplies: Array(ops.dictionary.keys))
-                ops.viewSingle(key: prompt)
+                ops.viewSingle(pass: phrase, key: prompt)
             case "3":
                 print("Adding single...")
-                print("Enter your passphrase")
-                let pass = readLine()
+                let pass = Ask.AskQuestion(questionText: "Enter your passphrase. ", acceptableReplies: [passphrase])
                 print("Enter the name of the new password. ")
                 let name = readLine()
                 print("Enter the new password. ")
                 let pwd = readLine()
-                ops.addSingle(phrase: pass!, key: name!, value: pwd!)
+                ops.addSingle(phrase: pass, key: name!, value: pwd!)
                 
             case "4":
                 print("Deleting single...")

@@ -24,12 +24,13 @@ class Scramble {
     
     func executeScramble(newPass: String, passPhrase: String) -> String {
         str = newPass + passPhrase
+        strShift = ""
         shift = str.count
         strReversed = str.reversed()
         for letter in strReversed {
             strShift += String(translate(l: letter, trans: shift))
         }
-        print (strShift)
+        //print (strShift)
         return strShift
     }
     
@@ -41,7 +42,7 @@ class Scramble {
             strShift += String(reverseTranslate(l: letter, trans: shift))
         }
         strReversed = strShift.reversed()
-        print (String(strReversed))
+        //print (String(strReversed))
         return String(strReversed)
     }
 

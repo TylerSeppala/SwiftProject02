@@ -21,14 +21,25 @@ class Options {
         
     }
     
-    func viewSingle(key: String)
+    func viewSingle(pass: String, key: String)
     {
         dictionary = json.read()
         var val: String?
         val = dictionary[key]
         if let unwrappedVal = val {
             let result = scram.undoScramble(shiftedStr: unwrappedVal)
-            print(result)
+            var index = result.index(result.endIndex, offsetBy: -pass.count)
+            if result[index...] == pass
+            {
+                index = result.index(result.endIndex, offsetBy: (-pass.count - 1))
+                print(result[result.startIndex...index])
+                //print(result)
+            }
+            else
+            {
+                print(result)
+                print("Incorrect passphrase")
+            }
         }
     }
     
