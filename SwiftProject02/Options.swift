@@ -37,7 +37,7 @@ class Options {
             }
             else
             {
-                print(result)
+                //print(result)
                 print("Incorrect passphrase")
             }
         }
